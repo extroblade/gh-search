@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <title>gh-search</title>
+</head>
+<body>
+    <div class="content">
+        <form class="form" onsubmit="return false">            
+            <h2>Find a repository by it's name</h2>
+            <input
+                class="form input"
+                autofocus="true"
+                type="text"
+                placeholder="e.g owner/name"
+                
+            >
+            <button
+                type="button"
+                class="form__submit btn"
+            >
+                Submit
+            </button>
+        </form>
+
+        
+    
+        <div class="repos">
+    
+        </div>
+    </div>
+    
+    <script src="src/script.js"></script>
+</body>
+</html>
