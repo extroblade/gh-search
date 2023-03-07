@@ -34,36 +34,42 @@ function submit () {
 
 
 async function getResponse() {
-    repos.innerHTML = `<p>Loading...</p>`
+    phrase_input.classList.remove('error')
+    try {
+        res = await fetch(
+            `https://api.github.com/search/repositories?q=${phrase}&per_page=10`
+            )
+            .then(res => res.json())
+            .then(res => res.items)
+            .then(repos.innerHTML = `<p>Loading...</p>`)
+            console.log(res)
 
-    res = await fetch(
-        `https://api.github.com/search/repositories?q=${phrase}&per_page=10`
-        )
-        .then(res => res.json())
-        .then(res => res.items)
+        if(res != undefined && res.length){
+            res.map((item, i) => {
+                out +=
+                `<div class='repo'>\
+                <p class='repo__info'></p>\
+                    <a href="https://github.com/${item.full_name}" target="_blank" class="repo__comment link">\
+                    <p style="margin-bottom: 20px;">${i+1}. ${item.full_name}</p>\
+                    </a>\
+                    <div class='repo__infos'>\
+                        <p class='repo__info'>forks: ${item.forks}</p>\
+                        <p class='repo__info'>open issues: ${item.open_issues}</p>\
+                        <p class='repo__info'>watchers:${item.watchers}</p>\
+                    </div>\
+                </div>`
+            })
+        } else if (phrase.toLowerCase() === phrase.toUpperCase()) {
+            out = 'Enter repository name, please...'
+        } else out = `<p>Nothing like "${phrase.toUpperCase()}" was found</p>`
+        
 
-
-    res.map((item, i) => {
-        out +=
-        `<div class='repo'>\
-        <p class='repo__info'></p>\
-            <a href="https://github.com/${item.full_name}" target="_blank" class="repo__comment link">\
-            <p style="margin-bottom: 20px;">${i+1}. ${item.full_name}</p>\
-            </a>\
-            <div class='repo__infos'>\
-                <p class='repo__info'>forks: ${item.forks}</p>\
-                <p class='repo__info'>open issues: ${item.open_issues}</p>\
-                <p class='repo__info'>watchers:${item.watchers}</p>\
-            </div>\
-        </div>`
-    })
-
-    if(!res.length){
-        console.log('asd')
-        out = `<p>Nothing like "${phrase.toUpperCase()}" was found</p>`
+    } catch(e) {
+        console.log('error '+e)
+    } finally {
+        repos.innerHTML = out   
     }
-    console.log(res)
-    console.log(phrase)
 
-    repos.innerHTML = out   
+
+
 }
