@@ -44,15 +44,18 @@ async function getResponse() {
 
 
     res.map((item, i) => {
-        out += `<div class='repo'>\
-            <p>id: ${i+1}</p>\
-            <a href="https://github.com/${item.full_name}" target="_blank" class="link">\
-            <p>${item.full_name}</p>\
+        out +=
+        `<div class='repo'>\
+        <p class='repo__info'></p>\
+            <a href="https://github.com/${item.full_name}" target="_blank" class="repo__comment link">\
+            <p style="margin-bottom: 20px;">${i+1}. ${item.full_name}</p>\
             </a>\
-            <p>forks: ${item.forks}</p>\
-            <p>open issues: ${item.open_issues}</p>\
-            <p>watchers:${item.watchers}</p>\
-            </div>`
+            <div class='repo__infos'>\
+                <p class='repo__info'>forks: ${item.forks}</p>\
+                <p class='repo__info'>open issues: ${item.open_issues}</p>\
+                <p class='repo__info'>watchers:${item.watchers}</p>\
+            </div>\
+        </div>`
     })
 
     if(!res.length){

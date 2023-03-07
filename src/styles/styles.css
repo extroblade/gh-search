@@ -30,45 +30,102 @@ body {
   padding: 0 100px;
 }
 
+.btn {
+  padding: 8px;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: rgb(219, 212, 255);
+}
+
 .form {
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 50px;
+  padding-bottom: 10px;
 }
 .form * {
   margin-bottom: 15px;
 }
-.form .input {
-  padding: 10px;
+.form__alert {
+  margin-bottom: 0;
 }
-.form textarea {
-  max-width: 378px;
-  min-width: 378px;
-  min-height: 20px;
-  max-height: 300px;
+.form .input {
+  min-width: 380px;
+  padding: 10px;
+  border-radius: 10px;
 }
 .form .btn {
-  padding: 8px;
+  cursor: pointer;
+  border: 1px solid rgb(148, 153, 203);
+  border-radius: 50px;
 }
 
 .repo {
-  background-color: rgb(63, 55, 175);
-  padding: 40px 20px;
-  margin: 10px 0;
+  border: 3px dotted black;
+  background-color: rgb(148, 153, 203);
+  padding: 20px;
+  margin-bottom: 20px;
   width: 400px;
+  border-radius: 10px;
 }
-.repo a {
-  color: black;
-  text-decoration: none;
-}
-.repo a:hover {
-  color: white;
+.repos {
+  margin-bottom: 30px;
 }
 .repo__date {
-  display: flex;
-  justify-content: flex-end;
+  color: rgb(112, 112, 112);
 }
-.repo__author {
-  padding-bottom: 20px;
+.repo__info {
+  cursor: default;
+  font-size: 15px;
+  color: rgb(47, 47, 47);
+}
+.repo__infos {
+  display: flex;
+  justify-content: space-between;
+}
+.repo__comment {
+  font-size: 25px;
+  color: rgb(89, 89, 89);
+}
+.repo__commentp {
+  margin-bottom: 20px;
+}
+.repo__row {
+  padding: 20px 10px;
+  padding-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.repo__btns {
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.repo__delete-btn, .repo__like-btn {
+  background-color: rgb(148, 153, 203);
+  border: 0px;
+  cursor: pointer;
+}
+.repo__delete-btn img, .repo__like-btn img {
+  width: 30px;
+  height: 30px;
+}
+.repo__like-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.repo__like-btn .likes {
+  padding: 10px;
+  font-size: 20px;
 }/*# sourceMappingURL=styles.css.map */
