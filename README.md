@@ -1,4 +1,4 @@
-[ nativejs-comments ](https://extroblade.github.io/nativejs-comments) on github pages
+[ gh-search ](https://extroblade.github.io/gh-search) on github pages
 
 - gh api's search
 
